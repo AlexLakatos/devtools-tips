@@ -6,6 +6,7 @@
   * There shouldn't already be a file in `src/tips/en` with the name `<the-new-id>.md`
   * Make the ID human-readable, so it's easy to know what the tip is about without opening the md file
   * Use only lowercase characters and replace spaces with `-`
+  * Since the ID is used for the name of the file, it's important that once it's chosen, it doesn't change. Otherwise we might lose commit history on tips and we use it to attribute authorship on tops pages.
 * Create the md file:
   * Create a new file: `src/tips/en/<the-new-id>.md`
   * Add a front matter to the file with the following information:
@@ -27,8 +28,8 @@ _TODO_
 
 First make sure you have cloned the repo locally, then open a command line at the root of the repo.
 
-* `npm init` to get all of the dependencies installed
-* `npx @11ty/eleventy --serve` to launch the build and start a local server
+* `npm install` to get all of the dependencies installed
+* `npm run watch` to launch the build and start a local server
 * Then open a browser and navigate to [localhost:8080](localhost:8080)
 
 The page should auto-reload as you make changes to source code.

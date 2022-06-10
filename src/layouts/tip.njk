@@ -2,19 +2,29 @@
 layout: home.njk
 templateEngineOverride: njk
 ---
-<main>
-    <h2>{{ title }}</h2>
-    <div class="tip-content">
-        {{ content | safe }}
-    </div>
+<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+<h2 class="tip-title">{{ title }}</h2>
+<div class="tip-info">
+    Categories:
     <ul class="tags">
     {%- for tag in tags | onlyTags -%}
-        <li class="hover-box tag"><a href="/tag/{{ tag }}">{{ tag }}</a></li>
+        <li class="tag"><a href="/tag/{{ tag }}/">{{ tag }}</a></li>
     {%- endfor -%}
     </ul>
+    Supported by:
     <ul class="browsers">
     {%- for browser in tags | onlyBrowsers -%}
-        <li class="hover-box browser"><a href="/browser/{{ browser | processBrowserTagName }}">{{ browser | processBrowserTagName }}</a></li>
+        <li class="browser"><a href="/browser/{{ browser | processBrowserTagName }}/">{{ browser | processBrowserTagName }}</a></li>
     {%- endfor -%}
     </ul>
-</main>
+</div>
+<div class="tip-content">
+    {{ content | safe }}
+</div>
+<div class="tip-footer">
+    {%- if not isTweet -%}
+        <div class="authors">Authors: <span>{{ authors }}</span></div>
+        <p class="last-edit">Last edit: <time datetime="{{ page.date.toISOString() }}">{{ page.date.toLocaleDateString() }}</time></p>
+    {%- endif -%}
+</div>
+<script async src="/assets/share.js"></script>

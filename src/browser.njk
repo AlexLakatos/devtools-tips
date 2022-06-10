@@ -1,5 +1,9 @@
 ---js
 {
+  eleventyComputed: {
+    title: "{{ browser | processBrowserTagName | capitalize  }} DevTools Tips",
+  },
+  title: "DevTools Tips",
   layout: "home.njk",
   templateEngineOverride: "njk",
   eleventyExcludeFromCollections: true,
@@ -14,11 +18,12 @@
   permalink: "browser/{{ browser | slug | processBrowserTagName }}/"
 }
 ---
-<main>
-  <h2>{{ browser | processBrowserTagName }} tips</h2>
-  <ul class="tips">
-    {%- for post in collections[browser] -%}
-    <li class="hover-box tip"><a href="{{ post.url }}">{{ post.data.title }}</a></li>
-    {%- endfor -%}
-  </ul>
-</main>
+<div class="page-toolbar">
+  <h2>{{ collections[browser].length  }} {{ browser | processBrowserTagName | capitalize }} DevTools Tips</h2>
+  {% include 'filter-tip-list.njk' %}
+</div>
+<ul class="tips">
+{%- for post in collections[browser] | reverse -%}
+  {% include 'tip-in-list.njk' %}
+{%- endfor -%}
+</ul>

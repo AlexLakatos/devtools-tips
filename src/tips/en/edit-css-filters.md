@@ -1,4 +1,6 @@
 ---
+date: 2021-06-08
+authors: Patrick Brosset, Julian Descottes
 title: Edit CSS filters
 tags: ["css", "browser:firefox"]
 ---
@@ -9,6 +11,6 @@ Firefox provides a visual editor to play with CSS filters. You can add or remove
 * In the Rules panel, find an existing `filter` property, or add a new one.
 * Click on the filter swatch icon next to the filter value.
 
-[Learn mode on MDN](https://developer.mozilla.org/docs/Tools/Page_Inspector/How_to/Edit_CSS_filters).
+[Learn more on MDN](https://developer.mozilla.org/docs/Tools/Page_Inspector/How_to/Edit_CSS_filters).
 
 ![Screenshot of the filter editing UI in Firefox](/assets/img/edit-css-filters.png)
